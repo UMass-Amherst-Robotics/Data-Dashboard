@@ -5,15 +5,16 @@
 <div class="navbar-fixed"> 
   <nav class="nav-wrapper #b71c1c red darken-4">
     <div class="container">
-      <a href="#" class="brand-logo">DATA DASHBOARD</a>
+      <a href="#" class="brand-logo hide-on-med-and-down"><img src="static/images/UMRLogoWhite.png" alt=""></a>
+      <a href="#" class="brand-logo center">DATA DASHBOARD</a>
       <a href="#" class="sidenav-trigger" data-target="mobile-demo">
         <i class="material-icons">menu</i>
       </a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="">Current Runthrough</a></li>
-        <li><a href="">Historical Data</a></li>
-      </ul>
     </div>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="">Current Runthrough</a></li>
+      <li><a href="">Historical Data</a></li>
+    </ul>
   </nav>
 </div>
 
@@ -22,6 +23,8 @@
   <li><a href="">Historical Data</a></li>
 </ul>
 
+<div class="row"></div> <!-- Whitespace undeerneath nav-->
+
 <div class="container">
 
   <div class="row">
@@ -29,9 +32,9 @@
       <div class="card">
         <div class="card-content">
           <span class="card-title">Speed and Distance</span>
-          <p>Current Speed: <b>1.5 m/s</b></p>
-          <p>Average Speed: <b>1.5 m/s</b></p>
-          <p>Total Distance Travelled: <b>1.5 m/s</b></p>
+          <p>Current Speed: <b>{{currentSpeedHTML}} m/s</b></p>
+          <p>Average Speed: <b>{{averageSpeedHTML}} m/s</b></p>
+          <p>Total Distance Travelled: <b>{{totalDistanceHTML}} m</b></p>
         </div>
       </div>
     </div>
@@ -40,9 +43,9 @@
       <div class="card">
         <div class="card-content">
           <span class="card-title">Voltage and Battery Life</span>
-          <p>Current Voltage to Motors: <b>4.8 V</b></p>
-          <p>Average Voltage to Motors: <b>5.6 V</b></p>
-          <p>Battery Life: <b>50%</b></p>
+          <p>Current Voltage to Motors: <b>{{currentVoltageHTML}} V</b></p>
+          <p>Average Voltage to Motors: <b>{{averageVoltageHTML}} V</b></p>
+          <p>Battery Life: <b>{{batteryLifeHTML}}%</b></p>
         </div>
       </div>
     </div>
@@ -53,10 +56,10 @@
       <div class="card">
         <div class="card-content">
           <span class="card-title">Temperature</span>
-          <p>Current CPU Temperature: <b>100&#176F</b></p>
-          <p>Average CPU Temperature: <b>100&#176F</b></p>
-          <p>Current Sensor Temperature: <b>100&#176F</b></p>
-          <p>Average Sensor Temperature: <b>100&#176F</b></p>
+          <p>Current CPU Temperature: <b>{{currentCPUTemperatureHTML}}&#176F</b></p>
+          <p>Average CPU Temperature: <b>{{averageCPUTemperatureHTML}}&#176F</b></p>
+          <p>Current Sensor Temperature: <b>{{currentSensorTemperatureHTML}}&#176F</b></p>
+          <p>Average Sensor Temperature: <b>{{averageSensorTemperatureHTML}}&#176F</b></p>
         </div>
       </div>
     </div>
@@ -65,10 +68,10 @@
       <div class="card">
         <div class="card-content">
           <span class="card-title">Weight and Stress</span>
-          <p>Front-Right Wheel Stress: <b>1 N/m&#xb2</b></p>
-          <p>Front-Left Wheel Stress: <b>1 N/m&#xb2</b></p>
-          <p>Back-Right Wheel Stress: <b>1 N/m&#xb2</b></p>
-          <p>Back-Left Wheel Stress: <b>1 N/m&#xb2</b></p>
+          <p>Front-Right Wheel Stress: <b>{{frontRightWheelStressHTML}} N/m&#xb2</b></p>
+          <p>Front-Left Wheel Stress: <b>{{frontLeftWheelStressHTML}} N/m&#xb2</b></p>
+          <p>Back-Right Wheel Stress: <b>{{backRightWheelStressHTML}} N/m&#xb2</b></p>
+          <p>Back-Left Wheel Stress: <b>{{backLeftWheelStressHTML}} N/m&#xb2</b></p>
         </div>
       </div>
     </div>
