@@ -19,7 +19,9 @@ def hello_world():
     frontLeftWheelStressPython = 1
     backRightWheelStressPython = 3
     backLeftWheelStressPython = 4
+
     return render_template("views/index.html", currentSpeedHTML=currentSpeedPython, averageSpeedHTML=averageSpeedPython, totalDistanceHTML=totalDistancePython, currentVoltageHTML=currentVoltagePython, averageVoltageHTML=averageVoltagePython, batteryLifeHTML=batteryLifePython, currentCPUTemperatureHTML=currentCPUTemperaturePython, averageCPUTemperatureHTML=averageCPUTemperaturePython, currentSensorTemperatureHTML=currentSensorTemperaturePython, averageSensorTemperatureHTML=averageSensorTemperaturePython, frontRightWheelStressHTML=frontRightWheelStressPython, frontLeftWheelStressHTML=frontLeftWheelStressPython, backRightWheelStressHTML=backRightWheelStressPython, backLeftWheelStressHTML=backLeftWheelStressPython)
+    
     # don't need "template/" because Flask objeect looks for template folder
 
 if __name__ == "__main__":
