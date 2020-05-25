@@ -41,5 +41,22 @@
 
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="static/js/materialize.min.js"></script>
+
+      <script type="text/javascript" src="static/js/justgage.js"></script>
+      <script type="text/javascript" src="static/js/raphael-2.1.4.min.js"></script>
+      <<script>
+
+
+
+var g = new JustGage({
+  id: "cpu_gauge",
+  min: 0,
+  max: 100,
+  title: "CPU Percent",
+  value: {{data["cpu_percent"]}},
+  titleFontColor :"#fff",
+  valueFontColor :"#fff"
+});
+   </script>
     </body>
   </html>
