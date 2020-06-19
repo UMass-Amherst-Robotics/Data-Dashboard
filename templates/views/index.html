@@ -17,8 +17,8 @@
     <div class="col s3 m3">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text center-align">
-          <h4>Battery Chart</h4>
-          <canvas id="myChart" width="400" height="400"></canvas>
+          <h5>Battery Percentages Over Time </h5>
+          <canvas id="mixed-chart" width="570" height="600"></canvas>
         </div>
       </div>
     </div>
@@ -43,17 +43,39 @@
      });
 
      // BATTERY LEVELS
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: [{x: 10, y: 20}],
-      options: {
-        scales: {
-            yAxes: [{
-                stacked: true
-            }]
+    new Chart(document.getElementById("mixed-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["March", "April", "May", "June"],
+      datasets: [{
+          label: "Battery1",
+          type: "line",
+          borderColor: "#8e5ea2",
+          data: [408,547,675,734],
+          fill: false
+        }, {
+          label: "Battery2",
+          type: "line",
+          borderColor: "#3e95cd",
+          data: [133,221,783,2478],
+          fill: false
+        }, {
+          label: "Battery1",
+          type: "bar",
+          backgroundColor: "rgba(0,0,0,0.2)",
+          data: [408,547,675,734],
+        }, {
+          label: "Battery2",
+          type: "bar",
+          backgroundColor: "rgba(0,0,0,0.2)",
+          backgroundColorHover: "#3e95cd",
+          data: [133,221,783,2478]
         }
-      }
-    });
+      ]
+    },
+    options: {
+      legend: { display: false }
+    }
+});
  </script>
 {% endblock %}
