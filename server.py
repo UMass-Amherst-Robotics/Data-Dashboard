@@ -38,6 +38,8 @@ def welcomeMessage():
 def addData():
     if request.method == 'POST':
         info = request.get_json()
+        dataSize = len(info.content)
+        info['dataSize'] = dataSize
         try:
             db.insert(info)
             for k,v in info.items():
