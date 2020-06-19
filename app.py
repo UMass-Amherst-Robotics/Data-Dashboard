@@ -7,6 +7,7 @@
 # Created on May 15th, 2020
 
 from flask import Flask, request, jsonify, render_template
+import os
 import requests
 import json
 
@@ -19,7 +20,7 @@ app = Flask(__name__)       # Server
 def get_data():
     r = requests.get("http://localhost:5000/data")
     data = json.loads(r.text)
-
+    
     return render_template('views/index.html',data = data)
 
 
