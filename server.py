@@ -10,11 +10,12 @@ from flask import Flask, request, jsonify
 from tinydb import TinyDB, Query
 
 ####################################
-db = TinyDB('data.json')    # TinyDB Database
+db = TinyDB('data.json')        # TinyDB Database
 ####################################
-server = Flask(__name__)       # Server
+server = Flask(__name__)        # Server
 ####################################
 
+##### Code to modularize the database #####
 # class Datastore:
 #     def __init__(self,type):
 #         if type == "TinyDB":
@@ -24,12 +25,13 @@ server = Flask(__name__)       # Server
 #         pass
 #     def update():
 #         pass
+#######################################
 
 
 # example GET Request to retrieve data from server
 @server.route('/', methods=['GET'])
 def welcomeMessage():
-    return jsonify({'message' : 'Welcome to the server!'})
+    return jsonify({'message' : 'Welcome to the UMass Robotics Data-Dashboard!'})
 
 # POST Request to send data to the server from robot
 @server.route('/data', methods=['POST', 'GET'])
@@ -50,13 +52,26 @@ def addData():
         last_row = data[len(data) - 1]
         return last_row
 
-
 @server.route('/data/<n_records>')
 def getDataNRecords(n_records):
     n = int(n_records)
     data = db.all()
     last_n = data[len(data) - 1 - n:]
     return {"records":last_n}
+
+# POST Request to retrieve array from battery percentages
+@server.route('/data/battery-percentage', methods=['GET'])
+def getBatteryPercentageData():
+    data = db.all()
+    return {"records" : list(map(lambda x: {x["time_stamp"] : x["battery_percentage"]}, data))}
+
+# POST
+@server.route('/data/battery-percentage/<n_records>')
+def getBatteryPercentageDataForRecords(n):
+    records = int(n)
+    data = db.all()
+    last_n_records = data[len(data) - 1 - records:]
+    return {"records" : list(map(lambda x: {x["time_stamp"] : x["battery_percentage"]},last_n_records))}
 
 ############### CHART GET REQUESTS ############################
 

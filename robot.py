@@ -10,21 +10,27 @@ import requests
 import time
 import random
 
-# import sensor_pack
-
 serverAddr = 'http://127.0.0.1:5000/data'
-
 data_dict = {}
-peen_sizes = ["small","substantial","massive","guti"]
+
 def update():
     data_dict["loadavg"] = ps.getloadavg()
     data_dict["cpu_percent"] = ps.cpu_percent()
     data_dict["virtual_memory"] = ps.virtual_memory()
+    data_dict["battery_percentage"] = getBatteryPercentage()
     data_dict["time_stamp"] = time.time()
-    data_dict["peen"] = peen_sizes[random.randint(0,len(peen_sizes)-1)]
 
-# data_dict["cpu_temperature"] = sensor_pack.cpu_temperature()
+######### BATTERY PERCENTAGE EXAMPLE CODE FOR ROBOT ###########
+# Definition: Returns the battery percentage of the robot over time.
+# Function getBatteryPercentage() -> void
+batteryPercentage = 101 # Fake Value
+def getBatteryPercentage():
+    # Fake example until we can get the real thing working on robot
+    global batteryPercentage
+    batteryPercentage = (batteryPercentage - 1)
+    return batteryPercentage
 
+# MARK: Main Method
 if __name__ == '__main__':
     while(1):
         update()
