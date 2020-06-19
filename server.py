@@ -26,7 +26,7 @@ server = Flask(__name__)        # Server
 #     def update():
 #         pass
 #######################################
-
+dataSizes = []
 
 # example GET Request to retrieve data from server
 @server.route('/', methods=['GET'])
@@ -39,7 +39,8 @@ def addData():
     if request.method == 'POST':
         info = request.get_json()
         dataSize = len(info.content)
-        info['dataSize'] = dataSize
+        dataSizes.append(dataSize)
+        info['dataSize'] = dataSizes
         try:
             db.insert(info)
             for k,v in info.items():
